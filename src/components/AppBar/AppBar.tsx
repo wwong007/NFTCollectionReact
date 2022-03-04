@@ -1,21 +1,22 @@
+// REACT
 import * as React from 'react';
 
+// MATERIAL UI
 import { AppBar, Box, IconButton, Menu, MenuItem, Toolbar, Typography } from '@mui/material';
 import  MenuIcon from '@mui/icons-material/Menu';
 
 
 export default function MenuAppBar() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [ pageName, setPageName ] = React.useState<string>('Collection') 
+  const [ pageName, setPageName ] = React.useState<string | null>('Collection') 
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget)
   }
 
-  const handleMenuChange = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setPageName(event.currentTarget.value)
-  }
 
-  const handleClose = () => {
+
+  const handleClose = (event: React.MouseEvent<HTMLLIElement>) => {
+    setPageName(event.currentTarget.innerText)
     setAnchorEl(null)
   }
 
@@ -30,7 +31,7 @@ export default function MenuAppBar() {
               color='inherit'
               aria-label='menu'
               sx={{ mr: 2 }}
-              onClick={handleMenuChange}
+              onClick={handleMenu}
             >
               <MenuIcon />
             </IconButton>
@@ -38,22 +39,22 @@ export default function MenuAppBar() {
               id='menu-appBar'
               anchorEl={anchorEl}
               anchorOrigin={{
-                vertical: 'top',
+                vertical: 'bottom',
                 horizontal: 'right'
               }}
               keepMounted
               transformOrigin={{
-                vertical:'top',
+                vertical:'bottom',
                 horizontal: 'right'
               }}
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
               <MenuItem onClick={handleClose}>Collection</MenuItem>
-              <MenuItem onClick={handleClose}>Sale History</MenuItem>
+              <MenuItem onClick={handleClose}>Sales History</MenuItem>
             </Menu>
           </>
-          <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
+          <Typography variant='h6' component='div' sx={{ flexGrow: 1, justifyContent: 'flex-start'}}>
             {pageName}
           </Typography>
         </Toolbar>

@@ -54,7 +54,7 @@ export default function MenuAppBar() {
               <MenuItem onClick={handleClose}>Sales History</MenuItem>
             </Menu>
           </>
-          <Typography variant='h6' component='div' sx={{ flexGrow: 1, justifyContent: 'flex-start'}}>
+          <Typography variant='h6' component='div' sx={{ display: 'flex', justifyContent: 'flex-start'}}>
             {pageName}
           </Typography>
         </Toolbar>

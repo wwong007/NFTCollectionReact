@@ -6,7 +6,7 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  width: 540,
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -20,7 +20,11 @@ export default function AddNFTForm () {
       component='form'
       sx={{
         ...style,
-        '& .MuiTextField-root': { m: 1, width: '25ch' }
+        '& .MuiTextField-root': { m: 1, width: '25ch' },
+        '& button': { m: 1, width: '35ch' },
+        display: 'grid',
+        gridTemplateColumns: 'repeat(2, auto)'
+        
       }}
       noValidate
       autoComplete='off'
@@ -63,7 +67,10 @@ export default function AddNFTForm () {
         label='Url'
         type={'url'}
       />
-      <Button>Submit</Button>
+      <Button
+        variant='contained'
+        size='small'
+      >Submit</Button>
     </Box>
   )
 }

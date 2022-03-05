@@ -5,13 +5,13 @@ import { DataGrid, GridColDef } from '@mui/x-data-grid';
 
 
 const columns: GridColDef[] = [
-    { field: 'id', headerName: 'Id' },
-    { field: 'name', headerName: 'Name' },
-    { field: 'tokenId', headerName: 'Token Id', type: 'number' },
-    { field: 'priceBought', headerName: 'Purchase Price', type: 'number' },
-    { field: 'dateBought', headerName: 'Purchase Date' },
-    { field: 'methodBought', headerName: 'Purchase Method' },
-    { field: 'url', headerName: 'URL' },
+    { field: 'id', headerName: 'Id', width: 150 },
+    { field: 'name', headerName: 'Name', width: 125 },
+    { field: 'tokenId', headerName: 'Token Id', width: 100 },
+    { field: 'priceBought', headerName: 'Purchase Price', type: 'number', width: 100 },
+    { field: 'dateBought', headerName: 'Purchase Date', width: 150 },
+    { field: 'methodBought', headerName: 'Purchase Method', width: 125 },
+    { field: 'url', headerName: 'URL', width: 300 },
 ];
 
 const rows = [
@@ -32,14 +32,19 @@ const rows = [
 ];
 
 export default function DataTable() {
+  const handleRowId = (id: string) => {
+    console.log(id)
+  }
   return(
-    <div style={{ height: 400, width: '100%' }}>
+    <div style={{ width: '100%', gridColumn: 'col1-end/col2-end', gridRow: 'row1-end/last-line'}}>
       <DataGrid
         rows={rows}
         columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
+        pageSize={10}
+        rowsPerPageOptions={[10]}
         checkboxSelection
+        autoHeight={true}
+        
       />
     </div>
   )

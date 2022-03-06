@@ -1,0 +1,5 @@
+.DataTable {
+  width: 100%;
+  grid-column: col1-end / col2-end ;
+  grid-row: row1-end / last-line;
+}

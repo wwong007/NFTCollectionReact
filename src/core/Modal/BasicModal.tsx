@@ -7,17 +7,16 @@ interface PropTypes {
   content: ReactElement;
   modalTitle: string;
   modalDescription: string
-  style: { [key: string]: string | number };
 }
 
 export default function BasicModal(props: PropTypes) {
-  const { buttonIcon, content, modalDescription, modalTitle, style } = props;
+  const { buttonIcon, content, modalDescription, modalTitle} = props;
   const [open, setOpen] = React.useState<boolean>(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
-    <div style={style}>
+    <div>
       <Button onClick={handleOpen}>
         {buttonIcon}
       </Button>

@@ -5,12 +5,12 @@ export interface TextFieldI {
   id: string;
   label: string;
   type?: string;
-  inputLabelProps: { [key: string]: string | number | boolean };
+  inputLabelProps?: { [key: string]: string | number | boolean };
 }
 
 interface PropTypes {
   fieldProps: TextFieldI[];
-  style: { [key: string]: string | number | boolean };
+  style: { [key: string]: string | number | boolean | { [key: string]: string | number }};
 };
 
 
@@ -25,12 +25,15 @@ export default function FormPropsTextFields(props: PropTypes) {
     >
       {fieldProps.map((fieldProp) => {
         const { id, label, type, inputLabelProps } = fieldProp;
-        <TextField
-          id={id}
-          label={label}
-          type={type}
-          InputLabelProps={inputLabelProps}
-        />
+        return (
+          <TextField
+            id={id}
+            key={label}
+            label={label}
+            type={type}
+            InputLabelProps={inputLabelProps}
+          />
+        )
       })}
       <Button variant='contained'>
         Submit

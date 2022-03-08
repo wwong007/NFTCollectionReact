@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Box, Button, Modal } from '@mui/material';
 
 
 interface PropTypes {
-  buttonIcon: React.Component;
-  content: React.Component;
+  buttonIcon: ReactElement;
+  content: ReactElement;
   modalTitle: string;
   modalDescription: string
   style: { [key: string]: string | number };

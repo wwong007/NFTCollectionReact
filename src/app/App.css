@@ -39,6 +39,6 @@
 
 .Main-Body {
   display: grid;
-  grid-template-rows: [row1-start] 10% [row1-end] 90% [last-line];
+  grid-template-rows: [row1-start] 50px [row1-end] auto [last-line];
   grid-template-columns: [col1-start] 5% [col1-end] 90% [col2-end] 5% [lastCol-end];
 }

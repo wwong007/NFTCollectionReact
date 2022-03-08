@@ -8,6 +8,8 @@ import './App.css';
 import { NFTCollectionI } from '../models/NFTCollection/NFTCollection.model';
 import { filterCollection, FilteredCollectionI } from '../utils/filterCollection';
 import { mock } from '../mockData';
+import CollectionTable from '../components/Collection/CollectionTable';
+import AddNFTModal from '../components/AddNFT/Modal/AddNFTModal';
 
 // dotenv.config();
 
@@ -27,8 +29,10 @@ function App() {
     <div className="App">
       <MenuAppBar></MenuAppBar>
       <div className='Main-Body'>
-        <BasicModal></BasicModal>
-        <DataTable></DataTable>
+        <AddNFTModal/>
+        <CollectionTable
+          data={collection}
+        />
       </div>
     </div>
   );

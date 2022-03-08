@@ -1,5 +1,6 @@
-import { Box, Button, TextField } from '@mui/material';
 import React from 'react';
+import FormPropsTextFields from '../../../core/Form/FormPropsTextFields';
+import { addNFTFormTextFields } from '../../../models/AddNFT/AddNFTForm.model';
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -10,67 +11,19 @@ const style = {
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
-  p: 4
+  p: 4,
+  display: 'grid',
+  gridTemplateColumns: 'repeat(2, auto)',
+  '& .MuiTextField-root': { m: 1, width: '25ch' },
+  '& button': { m: 1, width: '32.5ch' },
 };
 
 
 export default function AddNFTForm () {
   return (
-    <Box
-      component='form'
-      sx={{
-        ...style,
-        '& .MuiTextField-root': { m: 1, width: '25ch' },
-        '& button': { m: 1, width: '35ch' },
-        display: 'grid',
-        gridTemplateColumns: 'repeat(2, auto)'
-        
-      }}
-      noValidate
-      autoComplete='off'
-    >
-      <TextField
-        required
-        id='outlined-required'
-        label='Name'
-      />
-      <TextField
-        required
-        id='outlined-required'
-        label='Token Id'
-      />
-      <TextField
-        required
-        id='outlined-required'
-        label='Purchase Price'
-      />
-      <TextField
-        required
-        id='outlined-required'
-        label='Purchase Date'
-        type={'date'}
-        InputLabelProps={{ shrink: true }}
-      />
-      <TextField
-        required
-        id='outlined-required'
-        label='Purchase Fee'
-      />
-      <TextField
-        required
-        id='outlined-required'
-        label='Purchase Method'
-      />
-      <TextField
-        required
-        id='outlined-required'
-        label='Url'
-        type={'url'}
-      />
-      <Button
-        variant='contained'
-        size='small'
-      >Submit</Button>
-    </Box>
+    <FormPropsTextFields
+      fieldProps={addNFTFormTextFields}
+      style={style}
+    />
   )
 }

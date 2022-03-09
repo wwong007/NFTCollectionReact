@@ -9,4 +9,15 @@ export interface AddNFTRequestI {
   dateBought: number;
   feeBought: number;
   methodBought: MethodBought;
+  url: string
 };
+
+export interface AddNFTInputsI {
+  name: string;
+  tokenId: number;
+  priceBought: number;
+  dateBought: string;
+  feeBought: number;
+  methodBought: MethodBought;
+  url: string;
+}

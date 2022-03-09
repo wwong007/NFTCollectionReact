@@ -4,32 +4,39 @@ export const addNFTFormTextFields: TextFieldI[] = [
   {
     id: 'outlined-required',
     label: 'Name',
+    name: 'name'
   },
   {
     id: 'outlined',
-    label: 'Token Id'
+    label: 'Token Id',
+    name: 'tokenId'
   },
   {
     id: 'outlined',
-    label: 'Purchase Price'
+    label: 'Purchase Price',
+    name: 'priceBough'
   },
   {
     id: 'outlined',
     label: 'Purchase Date',
+    name: 'dateBought',
     type: 'date',
     inputLabelProps: { shrink: true }
   },
   {
     id: 'outlined',
-    label: 'Purchase Fee'
+    label: 'Purchase Fee',
+    name: 'feeBought'
   },
   {
     id: 'outlined',
-    label: 'Purchase Method'
+    label: 'Purchase Method',
+    name: 'methodBought'
   },
   {
     id: 'outlined',
     label: 'Url',
+    name: 'url',
     type: 'url'
   }
 

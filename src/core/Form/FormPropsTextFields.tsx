@@ -13,11 +13,12 @@ interface PropTypes {
   fieldProps: TextFieldI[];
   style: { [key: string]: string | number | boolean | { [key: string]: string | number }};
   handleInputChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  handleSubmit: (event: React.FormEvent<HTMLButtonElement>) => void;
 };
 
 
 export default function FormPropsTextFields(props: PropTypes) {
-  const { fieldProps, style, handleInputChange } = props;
+  const { fieldProps, style, handleInputChange, handleSubmit } = props;
   return (
     <Box
       component='form'
@@ -39,7 +40,7 @@ export default function FormPropsTextFields(props: PropTypes) {
           />
         )
       })}
-      <Button variant='contained'>
+      <Button variant='contained' onClick={handleSubmit}>
         Submit
       </Button>
     </Box>

@@ -14,7 +14,7 @@ export const addNFTFormTextFields: TextFieldI[] = [
   {
     id: 'outlined',
     label: 'Purchase Price',
-    name: 'priceBough'
+    name: 'priceBought'
   },
   {
     id: 'outlined',

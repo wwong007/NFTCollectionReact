@@ -14,10 +14,20 @@ export interface AddNFTRequestI {
 
 export interface AddNFTInputsI {
   name: string;
-  tokenId: number;
-  priceBought: number;
+  tokenId: string;
+  priceBought: string;
   dateBought: string;
-  feeBought: number;
+  feeBought: string;
   methodBought: MethodBought;
   url: string;
+}
+
+export const addNFTInputInitialValue: AddNFTInputsI = {
+  name: '',
+  tokenId: '',
+  priceBought: '',
+  dateBought: '',
+  feeBought: '',
+  methodBought: 'secondary',
+  url: ''
 }

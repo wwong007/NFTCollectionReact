@@ -2,21 +2,13 @@ import React from 'react';
 import { modalFormStyle } from '../../../core/Form/Form.styles';
 import FormPropsTextFields from '../../../core/Form/FormPropsTextFields';
 import { addNFTFormTextFields } from '../../../models/AddNFT/AddNFTForm.model';
-import { AddNFTInputsI, AddNFTRequestI } from '../../../models/AddNFT/AddNFTRequest.model';
+import { addNFTInputInitialValue, AddNFTInputsI, AddNFTRequestI } from '../../../models/AddNFT/AddNFTRequest.model';
 import { addNFTApi } from '../../../services/apis/addNFTApi';
 import { addNFTRequestFactoryFromInput } from '../../../utils/addNFTRequest.factory';
 
 
 export default function AddNFTForm () {
-  const [inputs, setInputs] = React.useState<AddNFTInputsI>({
-    name: '',
-    tokenId: Infinity,
-    priceBought: Infinity,
-    dateBought: '',
-    feeBought: Infinity,
-    methodBought: 'secondary',
-    url: ''
-  });
+  const [inputs, setInputs] = React.useState<AddNFTInputsI>(addNFTInputInitialValue);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.currentTarget
@@ -26,10 +18,12 @@ export default function AddNFTForm () {
     }))
   }
 
-  const handleSubmit = (event: React.FormEvent<HTMLButtonElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLButtonElement>) => {
     event.preventDefault()
-    const request: AddNFTRequestI = addNFTRequestFactoryFromInput(inputs);
-    // addNFTApi(request);
+    const request: AddNFTRequestI = await addNFTRequestFactoryFromInput(inputs);
+    addNFTApi(request);
+    alert('NFT Submitted')
+    window.location.reload()
   }
 
   return (

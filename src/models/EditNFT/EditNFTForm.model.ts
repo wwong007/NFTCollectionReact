@@ -3,6 +3,11 @@ import { TextFieldI } from '../../core/Form/FormPropsTextFields';
 export const editNFTFormTextFields: TextFieldI[] = [
   {
     id: 'outlined',
+    label: 'Id',
+    name: 'id'
+  },
+  {
+    id: 'outlined',
     label: 'Sales Price',
     name: 'priceSold'
   },

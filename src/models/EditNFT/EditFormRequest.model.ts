@@ -9,6 +9,7 @@ export interface EditNFTRequestI {
 };
 
 export interface EditNFTFormI {
+  id: string;
   priceSold: string;
   dateSold: string;
   feeSold: string;
@@ -16,6 +17,7 @@ export interface EditNFTFormI {
 };
 
 export const editNFTFormInitialValues: EditNFTFormI = {
+  id: '',
   priceSold: '',
   dateSold: '',
   feeSold: '',

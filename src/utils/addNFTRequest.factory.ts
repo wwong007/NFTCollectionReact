@@ -19,10 +19,10 @@ export function addNFTRequestFactoryFromInput(inputs: AddNFTInputsI): AddNFTRequ
   const request: AddNFTRequestI = {
     id,
     name,
-    tokenId,
-    priceBought,
+    tokenId: parseInt(tokenId),
+    priceBought: parseInt(priceBought),
     dateBought,
-    feeBought,
+    feeBought: parseInt(feeBought),
     methodBought,
     url
   };

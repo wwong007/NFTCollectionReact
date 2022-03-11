@@ -8,14 +8,14 @@ export interface EditNFTRequestI {
   methodSold: string;
 };
 
-export interface EditNftFormI {
+export interface EditNFTFormI {
   priceSold: string;
   dateSold: string;
   feeSold: string;
   methodSold: string;
 };
 
-export const editNFTFormInitialValue: EditNftFormI = {
+export const editNFTFormInitialValues: EditNFTFormI = {
   priceSold: '',
   dateSold: '',
   feeSold: '',

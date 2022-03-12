@@ -3,11 +3,9 @@ import { GridColDef } from "@mui/x-data-grid";
 import DataTable from "../../core/Table/DataTable";
 import { NFTCollectionI } from "../../models/NFTCollection/NFTCollection.model";
 import { CollectionRowI, generateNFTCollectionRow } from "../../utils/nftCollection.factory"
+import { DataPropI } from '../../models/Props/props.models';
 
 
-interface PropType {
-  data: NFTCollectionI[]
-}
 
 const columns: GridColDef[] = [
   { field: 'id', headerName: 'Id', minWidth: 200, align: 'center', headerAlign: 'center' },
@@ -19,7 +17,7 @@ const columns: GridColDef[] = [
   { field: 'url', headerName: 'Url', width: 375 },
 ]
 
-export default function CollectionTable(props: PropType) {
+export default function CollectionTable(props: DataPropI<NFTCollectionI>) {
   const rows: CollectionRowI[] = generateNFTCollectionRow(props.data);
   return(
     <>

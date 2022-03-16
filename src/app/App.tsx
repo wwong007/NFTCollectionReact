@@ -1,41 +1,51 @@
+// REACT
 import React, { useEffect, useState } from 'react';
-import * as dotenv from 'dotenv';
-import BasicModal from '../components/AddNFT/Modal/AddNFTModal';
-import MenuAppBar from '../components/AppBar/AppBar';
-import DataTable from '../components/DataTable/DataTable';
-import { getNFTCollection } from '../services/apis/getNFTCollectionApi';
-import './App.css';
-import { NFTCollectionI } from '../models/NFTCollection/NFTCollection.model';
-import { filterCollection, FilteredCollectionI } from '../utils/filterCollection';
-import { mock } from '../mockData';
-import CollectionTable from '../components/Collection/CollectionTable';
-import AddNFTModal from '../components/AddNFT/Modal/AddNFTModal';
-import EditNFTModal from '../components/EditNFT/Modal/EditNFTModal';
-import UtilBar from '../components/UtilBar/UtilBar';
 
-// dotenv.config();
+// CSS
+import './App.css';
+
+// REACT ROUTER
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+// MODEL
+import { NFTCollectionI } from '../models/NFTCollection/NFTCollection.model';
+
+// COMPONENTS
+import MenuAppBar from '../components/AppBar/AppBar';
+import CollectionPage from '../components/Page/CollectionPage/CollectionPage';
+import SalesHistoryPage from '../components/Page/SalesHistoryPage/SalesHistoryPage';
+
+// API
+import { getNFTCollection } from '../services/apis/getNFTCollectionApi';
+
+// UTIL
+import { filterCollection } from '../utils/filterCollection';
 
 function App() {
   const [sold, setSold] = useState<NFTCollectionI[]>([]);
   const [collection, setCollection] = useState<NFTCollectionI[]>([])
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(null);
-  const [error, setError] = useState(null);
+
   useEffect(() => {
-    // getNFTCollection();
-    const filteredData: FilteredCollectionI = filterCollection(mock);
-    setSold(filteredData.sold);
-    setCollection(filteredData.collection)
+    async function fetchCollection() {
+       const response = await getNFTCollection();
+       const data = filterCollection(response);
+       setCollection(data.collection);
+       setSold(data.sold)
+    };
+    fetchCollection()
   }, [])
+
   return (
     <div className="App">
-      <MenuAppBar></MenuAppBar>
-      <div className='Main-Body'>
-        <UtilBar />
-        <CollectionTable
-          data={collection}
-        />
-      </div>
+      <Router>
+        <>
+          <MenuAppBar></MenuAppBar>
+        </>
+        <Routes>
+          <Route path='/' element={<CollectionPage data={collection} />} />
+          <Route path='/salesHistory' element={<SalesHistoryPage data={sold}/>} />
+        </Routes>
+      </Router>
     </div>
   );
 }

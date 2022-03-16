@@ -1,5 +1,10 @@
+// REACT
 import React from 'react';
+
+// MATERIAL UI GRID
 import { DataGrid, GridColDef } from "@mui/x-data-grid"
+
+// CSS
 import './DataTable.css'
 
 interface PropTypes<T> {
@@ -16,7 +21,6 @@ export default function DataTable<T>(props: PropTypes<T>) {
         columns={columns}
         pageSize={10}
         rowsPerPageOptions={[10]}
-        checkboxSelection
         autoHeight={true}
       />
     </div>

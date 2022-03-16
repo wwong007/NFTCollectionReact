@@ -5,10 +5,14 @@ import * as React from 'react';
 import { AppBar, Box, IconButton, Menu, MenuItem, Toolbar, Typography } from '@mui/material';
 import  MenuIcon from '@mui/icons-material/Menu';
 
+// REACT ROUTER
+import { useNavigate } from 'react-router-dom';
+
 
 export default function MenuAppBar() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [ pageName, setPageName ] = React.useState<string | null>('Collection') 
+  const [ pageName, setPageName ] = React.useState<string | null>('Collection');
+  const navigate = useNavigate();
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget)
   }
@@ -16,8 +20,11 @@ export default function MenuAppBar() {
 
 
   const handleClose = (event: React.MouseEvent<HTMLLIElement>) => {
-    setPageName(event.currentTarget.innerText)
-    setAnchorEl(null)
+    const  { innerText } = event.currentTarget;
+    setPageName(innerText)
+    setAnchorEl(null);
+    const path: string = innerText === 'Collection' ? '/' : '/salesHistory'
+    navigate(path);
   }
 
   return (

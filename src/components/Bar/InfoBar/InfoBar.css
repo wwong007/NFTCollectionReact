@@ -3,4 +3,5 @@
   grid-row: row1-start / row1-end;
   display: flex;
   justify-content: space-evenly;
+  margin-top: 10px;
 }

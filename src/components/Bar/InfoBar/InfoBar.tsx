@@ -2,22 +2,26 @@ import { Typography } from '@mui/material';
 import React from 'react';
 import './InfoBar.css'
 
-interface PropTypes {
+export interface InfoBarPropI {
   totalSpent: number;
   totalSold: number;
   totalFees: number;
+  profit: number
 }
 
-export default function SalesHistoryInfoBar(props: PropTypes) {
-  const { totalSold, totalSpent, totalFees } = props
-  const profit: number = totalSold - totalSpent - totalFees
+interface PropType {
+  data: InfoBarPropI
+}
 
+export default function SalesHistoryInfoBar(props: PropType) {
+  const { totalSold, totalSpent, totalFees, profit } = props.data;
+  const profitFontColor: string = profit < 0 ? 'red' : 'green'
   return (
     <div className='Info-Bar'>
       <Typography>Total Spent: {totalSpent}</Typography>
       <Typography>Total Sold: {totalSold}</Typography>
       <Typography>Total Fees: {totalFees}</Typography>
-      <Typography>Profit: {profit}</Typography>
+      <Typography sx={{ color: profitFontColor }}>Profit: {profit}</Typography>
     </div>
   )
 }

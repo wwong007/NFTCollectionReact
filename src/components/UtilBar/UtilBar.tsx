@@ -1,7 +1,13 @@
+// REACT
 import React from 'react';
+
+// CSS
+import './UtilBar.css'
+
+// COMPONENTS
 import AddNFTModal from '../AddNFT/Modal/AddNFTModal';
 import EditNFTModal from '../EditNFT/Modal/EditNFTModal';
-import './UtilBar.css'
+
 
 export default function UtilBar() {
   return (

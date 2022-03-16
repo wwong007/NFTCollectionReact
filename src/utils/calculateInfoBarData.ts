@@ -1,3 +1,4 @@
+// MODELS
 import { InfoBarPropI } from "../components/Bar/InfoBar/InfoBar";
 import { NFTCollectionI } from "../models/NFTCollection/NFTCollection.model";
 

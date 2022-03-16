@@ -1,6 +1,11 @@
+// REACT
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+// COMPONENT
 import App from './app/App';
+
+// CSS
 import './index.css';
 
 import reportWebVitals from './services/webVital/reportWebVitals';

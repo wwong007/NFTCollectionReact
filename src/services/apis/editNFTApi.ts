@@ -1,4 +1,7 @@
+// MODEL
 import { EditNFTRequestI } from "../../models/EditNFT/EditFormRequest.model";
+
+// CONSTANTS
 import { API_KEY, BASE_URL } from "./getNFTCollectionApi";
 
 

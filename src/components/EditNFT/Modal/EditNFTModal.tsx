@@ -1,5 +1,10 @@
-import { EditOutlined } from '@mui/icons-material';
+// REACT
 import React from 'react';
+
+// MATERIAL ICON 
+import { EditOutlined } from '@mui/icons-material';
+
+// COMPONENTS
 import BasicModal from '../../../core/Modal/BasicModal';
 import EditNFTForm from '../Form/EditNFTForm';
 

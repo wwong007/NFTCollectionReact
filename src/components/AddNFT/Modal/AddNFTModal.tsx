@@ -1,7 +1,15 @@
+// REACT
 import React from 'react';
+
+//  MATERIAL ICON
 import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined'
-import AddNFTForm from '../Form/AddNFTForm';
+
+// MODEL
 import BasicModal from '../../../core/Modal/BasicModal';
+
+// COMPONENT
+import AddNFTForm from '../Form/AddNFTForm';
+
 
 
 export default function AddNFTModal() {

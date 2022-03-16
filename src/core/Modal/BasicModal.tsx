@@ -1,5 +1,8 @@
+// REACT
 import React, { ReactElement } from 'react';
-import { Box, Button, Modal } from '@mui/material';
+
+// MATERIAL UI
+import { Button, Modal } from '@mui/material';
 
 
 interface PropTypes {

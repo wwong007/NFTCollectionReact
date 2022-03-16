@@ -1,9 +1,20 @@
+// REACT
 import React from 'react';
+
+// STYLE
 import { modalFormStyle } from '../../../core/Form/Form.styles';
-import FormPropsTextFields from '../../../core/Form/FormPropsTextFields';
+
+// MODELS
 import { editNFTFormTextFields } from '../../../models/EditNFT/EditNFTForm.model';
 import { EditNFTFormI, editNFTFormInitialValues, EditNFTRequestI } from '../../../models/EditNFT/EditFormRequest.model';
+
+// COMPONENTS
+import FormPropsTextFields from '../../../core/Form/FormPropsTextFields';
+
+// API
 import { editNFTApi } from '../../../services/apis/editNFTApi';
+
+// FACTORY FUNCTION
 import { editNFTRequestFactoryFromInputs } from '../../../utils/editNFTRequest.factory';
 
 

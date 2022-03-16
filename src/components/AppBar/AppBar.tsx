@@ -13,11 +13,10 @@ export default function MenuAppBar() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [ pageName, setPageName ] = React.useState<string | null>('Collection');
   const navigate = useNavigate();
+
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget)
   }
-
-
 
   const handleClose = (event: React.MouseEvent<HTMLLIElement>) => {
     const  { innerText } = event.currentTarget;

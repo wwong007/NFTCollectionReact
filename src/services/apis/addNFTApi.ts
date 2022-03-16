@@ -1,4 +1,7 @@
+// MODEL
 import { AddNFTRequestI } from "../../models/AddNFT/AddNFTRequest.model";
+
+// CONSTANTS
 import { BASE_URL, API_KEY } from "./getNFTCollectionApi";
 
 

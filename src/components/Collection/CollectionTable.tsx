@@ -1,21 +1,20 @@
+// REACT
 import React from 'react'
-import { GridColDef } from "@mui/x-data-grid";
+
+// COMPONENT
 import DataTable from "../../core/Table/DataTable";
+
+// MODELS
 import { NFTCollectionI } from "../../models/NFTCollection/NFTCollection.model";
-import { CollectionRowI, generateNFTCollectionRow } from "../../utils/nftCollection.factory"
 import { DataPropI } from '../../models/Props/props.models';
 
+// FACTORY FUNCTION
+import { CollectionRowI, generateNFTCollectionRow } from "../../utils/nftCollection.factory"
+
+// CONSTANT
+import { CollectionTableColumns } from '../../constants/TableColumns';
 
 
-const columns: GridColDef[] = [
-  { field: 'id', headerName: 'Id', minWidth: 200, align: 'center', headerAlign: 'center' },
-  { field: 'name', headerName: 'Name', width: 150, align: 'center', headerAlign: 'center' },
-  { field: 'tokenId', headerName: 'Token Id', width: 100, align: 'center', headerAlign: 'center' },
-  { field: 'priceBought', headerName: 'Purchase Price', type: 'number', width: 125, align: 'center', headerAlign: 'center' },
-  { field: 'dateBought', headerName: 'Purchase Date', width: 125, align: 'center', headerAlign: 'center' },
-  { field: 'methodBought', headerName: 'Purchase Method', width: 150, align: 'center', headerAlign: 'center' },
-  { field: 'url', headerName: 'Url', width: 375 },
-]
 
 export default function CollectionTable(props: DataPropI<NFTCollectionI>) {
   const rows: CollectionRowI[] = generateNFTCollectionRow(props.data);
@@ -23,7 +22,7 @@ export default function CollectionTable(props: DataPropI<NFTCollectionI>) {
     <>
       <DataTable<CollectionRowI>
         rows={rows}
-        columns={columns}
+        columns={CollectionTableColumns}
       />
     </>
   )

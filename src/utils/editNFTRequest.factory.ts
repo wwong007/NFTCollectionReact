@@ -3,9 +3,9 @@ import { EditNFTFormI, EditNFTRequestI } from "../models/EditNFT/EditFormRequest
 
 export function editNFTRequestFactoryFromInputs(inputs: EditNFTFormI): EditNFTRequestI {
   const { id, methodSold } = inputs;
-  const priceSold: number = parseInt(inputs.priceSold);
+  const priceSold: number = parseFloat(inputs.priceSold);
   const dateSold: number = Date.parse(inputs.dateSold);
-  const feeSold: number = parseInt(inputs.feeSold);
+  const feeSold: number = parseFloat(inputs.feeSold);
   return {
     id,
     priceSold,

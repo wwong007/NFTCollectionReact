@@ -20,9 +20,9 @@ export function addNFTRequestFactoryFromInput(inputs: AddNFTInputsI): AddNFTRequ
     id,
     name,
     tokenId: parseInt(tokenId),
-    priceBought: parseInt(priceBought),
+    priceBought: parseFloat(priceBought),
     dateBought,
-    feeBought: parseInt(feeBought),
+    feeBought: parseFloat(feeBought),
     methodBought,
     url
   };

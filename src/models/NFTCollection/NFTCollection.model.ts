@@ -15,4 +15,5 @@ export interface NFTCollectionI {
   isSold: boolean;
   methodBought: MethodBought;
   methodSold: MethodSold;
+  [key: string]: string | number | null | boolean;
 }

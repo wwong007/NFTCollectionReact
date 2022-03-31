@@ -7,9 +7,11 @@ interface PropType {
 export default function PageBody(props: PropType) {
   return (
     <>
-      {props.components.map((component) => {
+      {props.components.map((component, index) => {
         return (
-          component
+          <React.Fragment key={index}>
+            {component}
+          </React.Fragment>
         )
       })}
     </>

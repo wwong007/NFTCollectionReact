@@ -14,18 +14,18 @@ import FormPropsTextFields from '../../../core/Form/FormPropsTextFields';
 // API
 import { addNFTApi } from '../../../services/apis/addNFTApi';
 
+// HANDLER
+import { handleInputChange } from '../../../handlers/handleInputChange';
+
 // FACTORY FUNCTION
 import { addNFTRequestFactoryFromInput } from '../../../utils/addNFTRequest.factory';
 
 export default function AddNFTForm () {
   const [inputs, setInputs] = React.useState<AddNFTInputsI>(addNFTInputInitialValue);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = event.currentTarget
-    setInputs((prevState) => ({
-      ...prevState,
-      [name]: value
-    }))
+  const handleFormInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    handleInputChange<AddNFTInputsI>(event, setInputs)
+    console.log(inputs)
   }
 
   const handleSubmit = async (event: React.FormEvent<HTMLButtonElement>) => {
@@ -40,7 +40,7 @@ export default function AddNFTForm () {
     <FormPropsTextFields
       fieldProps={addNFTFormTextFields}
       style={modalFormStyle}
-      handleInputChange={handleInputChange}
+      handleInputChange={handleFormInputChange}
       handleSubmit={handleSubmit}
     />
   )

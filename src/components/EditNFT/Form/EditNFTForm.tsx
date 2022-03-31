@@ -14,18 +14,17 @@ import FormPropsTextFields from '../../../core/Form/FormPropsTextFields';
 // API
 import { editNFTApi } from '../../../services/apis/editNFTApi';
 
+// HANDLER
+import { handleInputChange } from '../../../handlers/handleInputChange';
+
 // FACTORY FUNCTION
 import { editNFTRequestFactoryFromInputs } from '../../../utils/editNFTRequest.factory';
 
 
 export default function EditNFTForm() {
   const [inputs, setInputs] = React.useState<EditNFTFormI>(editNFTFormInitialValues);
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = event.currentTarget;
-    setInputs((prevState) => ({
-      ...prevState,
-      [name]: value
-    }));
+  const handleFormInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    handleInputChange(event, setInputs);
   };
   const handleSubmit = async (event: React.FormEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -39,7 +38,7 @@ export default function EditNFTForm() {
     <FormPropsTextFields
       fieldProps={editNFTFormTextFields}
       style={modalFormStyle}
-      handleInputChange={handleInputChange}
+      handleInputChange={handleFormInputChange}
       handleSubmit={handleSubmit}
     />
   );

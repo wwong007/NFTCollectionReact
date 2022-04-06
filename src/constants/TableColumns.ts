@@ -8,7 +8,7 @@ export const CollectionTableColumns: GridColDef[] = [
   { field: 'priceBought', headerName: 'Purchase Price', type: 'number', width: 125, align: 'center', headerAlign: 'center' },
   { field: 'dateBought', headerName: 'Purchase Date', width: 125, align: 'center', headerAlign: 'center' },
   { field: 'methodBought', headerName: 'Purchase Method', width: 150, align: 'center', headerAlign: 'center' },
-  { field: 'url', headerName: 'Url', width: 375 },
+  { field: 'url', headerName: 'Url', width: 500 },
 ]
 
 
@@ -21,5 +21,5 @@ export const SalesHistoryTableColumns: GridColDef[] = [
   { field: 'dateSold', headerName: 'Sales Date', width: 105, headerAlign: 'center', align: 'center' },
   { field: 'feeSold', headerName: 'Sales Fee', width: 105, headerAlign: 'center', align: 'center' },
   { field: 'methodSold', headerName: 'Sales Method', width: 115, headerAlign: 'center', align: 'center' },
-  { field: 'url', headerName: 'Url', width: 300 }
+  { field: 'url', headerName: 'Url', width: 500 }
 ];

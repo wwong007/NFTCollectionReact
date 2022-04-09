@@ -6,13 +6,17 @@ import { AppBar, Box, IconButton, Menu, MenuItem, Toolbar, Typography } from '@m
 import  MenuIcon from '@mui/icons-material/Menu';
 
 // REACT ROUTER
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+
+// CONSTANT
+import { pathNames } from '../../constants/PathNames';
 
 
 export default function MenuAppBar() {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [ pageName, setPageName ] = React.useState<string | null>('Collection');
+  const location = useLocation();
   const navigate = useNavigate();
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [ pageName, setPageName ] = React.useState<string | null>(pathNames[location.pathname]);
 
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget)
